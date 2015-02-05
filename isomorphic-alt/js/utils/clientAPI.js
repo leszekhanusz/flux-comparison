@@ -15,5 +15,17 @@ module.exports = {
                 resolve();
             });
         });
+    },
+    cartCheckout: function (products) {
+        return new Promise(function (resolve, reject) {
+            console.log('cartCheckout');
+            socket.emit('cartCheckout', products, function (data) {
+                if (data === 'OK') {
+                    resolve();
+                } else {
+                    reject();
+                }
+            });
+        });
     }
 };

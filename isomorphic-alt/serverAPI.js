@@ -9,6 +9,11 @@ function serverAPI (http) {
             console.log(' ping received');
             fn('pong');
         });
+
+        socket.on('cartCheckout', function (products, fn) {
+            console.log(' Checkout received');
+            fn('OK');
+        });
     });
 }
 
