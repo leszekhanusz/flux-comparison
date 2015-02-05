@@ -5,6 +5,7 @@ let React = require('react');
 let express = require('express');
 let path = require('path');
 
+let config = require('./config');
 let App = require('./js/components/App.jsx');
 let WebAPIUtils = require('./js/utils/WebAPIUtils');
 let alt = require('./js/alt');
@@ -66,6 +67,6 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(8080, () => {
-    console.log('Listening on port 8080');
+app.listen(config.port, () => {
+    console.log('Listening on port ' + config.port);
 });
