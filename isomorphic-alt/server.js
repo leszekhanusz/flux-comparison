@@ -12,6 +12,8 @@ let alt = require('./js/alt');
 
 let app = express();
 
+let http = require('http');
+
 // Static directories to make css and js work
 app.use('/build', express.static(path.join(__dirname, 'build')))
 app.use('/common', express.static(path.join(__dirname, '..', 'common')))
@@ -67,6 +69,9 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(config.port, () => {
+app.server = http.createServer(app);
+app.server.listen(config.port, () => {
     console.log('Listening on port ' + config.port);
 });
+
+require('./serverAPI.js')(app.server);

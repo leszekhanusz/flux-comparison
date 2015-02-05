@@ -5,6 +5,7 @@ require('es5-shim/es5-sham');
 
 var React = require('react');
 var App = require('./components/App.jsx');
+var clientAPI = require('./utils/clientAPI.js');
 
 var Iso = require('iso');
 var alt = require('./alt');
