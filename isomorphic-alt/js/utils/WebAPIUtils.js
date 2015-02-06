@@ -22,7 +22,7 @@ module.exports = {
     },
 
     checkoutProducts: function (products) {
-        return clientAPI.cartCheckout()
+        return clientAPI.cartCheckout(products)
         .then(function () {
             ActionCreators.finishCheckout(products);
             console.log('Checkout received and accepted by server');

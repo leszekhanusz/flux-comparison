@@ -11,6 +11,10 @@ clientAPI.ping();
 var Iso = require('iso');
 var alt = require('./alt');
 
+alt.dispatcher.register(function (data) {
+    console.log(data.action.toString() + ' : ' + JSON.stringify(data.data));
+});
+
 Iso.bootstrap(function (state, meta, container) {
     alt.bootstrap(state);
     React.render(React.createElement(App), container);
