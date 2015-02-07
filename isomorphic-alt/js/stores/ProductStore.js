@@ -17,13 +17,11 @@ class ProductStore {
 
     onReceiveProducts(products) {
         // allow direct access to product from id
-        products.forEach(function (product) {
-            this.products[product.id] = product;
-        }.bind(this));
+        products.forEach(product => this.products[product.id] = product, this);
     }
 
     onFinishCheckout(products) {
-        products.forEach(function (product) {
+        products.forEach(product => {
             let quantity = product.quantity;
             let id = product.id;
 
@@ -32,7 +30,7 @@ class ProductStore {
             } else {
                 console.log('Error: trying to checkout item which does not exist: ' + id );
             }
-        }.bind(this));
+        },this);
     };
 }
 

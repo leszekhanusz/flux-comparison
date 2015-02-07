@@ -30,9 +30,7 @@ class CartStore {
 
     static getAddedProducts() {
         var { products } = this.getState();
-        return Object.keys(products).map(function (id) {
-            return products[id];
-        });
+        return Object.keys(products).map(id => products[id]);
     }
 
     static getTotal() {

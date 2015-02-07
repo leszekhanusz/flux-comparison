@@ -19,6 +19,8 @@ function _getStateFromStores () {
 
     let products = Object.keys(productsInventory).map(function (id) {
         // Why do I need this assign ? I thougth store were immutables ??
+        // Answer: the stores are sending shallow copies instead of deep copies of the data with the getState function
+        //         ==> It is still possible to modify the content of the stores in the views
         let product = assign({}, productsInventory[id]);
 
         if (id in cartContent) {
